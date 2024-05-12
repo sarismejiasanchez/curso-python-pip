@@ -1,0 +1,10 @@
+services:
+  app-csv:  # Define un servicio llamado "app-csv"
+    build:  # Define cómo se va a construir la imagen del contenedor
+      context: .  # El contexto de construcción es el directorio actual
+      dockerfile: Dockerfile  # Especifica el archivo Dockerfile a utilizar para construir la imagen
+    volumes:  # Configura los volúmenes para montar el código fuente en el contenedor
+      - .:/app  # Monta el directorio actual en el directorio /app dentro del contenedor
+    working_dir: /app  # Establece el directorio de trabajo dentro del contenedor
+    command: bash -c "while true; do sleep 1; done"  # Especifica el comando a ejecutar cuando se inicie el contenedor
+    # Este comando mantendrá el contenedor en ejecución, esperando indefinidamente.
