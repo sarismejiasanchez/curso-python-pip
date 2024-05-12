@@ -1,0 +1,10 @@
+services:
+  web-server:  # Define un servicio llamado "web-server"
+    build:  # Define cómo se va a construir la imagen del contenedor
+      context: .  # El contexto de construcción es el directorio actual
+      dockerfile: Dockerfile  # Especifica el archivo Dockerfile a utilizar para construir la imagen
+    volumes:  # Configura los volúmenes para montar el código fuente en el contenedor
+      - .:/app  # Monta el directorio actual en el directorio /app dentro del contenedor
+    working_dir: /app  # Establece el directorio de trabajo dentro del contenedor
+    ports:
+      - '80:80' # El contenedor utilizará el puerto 80 del host y el puerto 80 del contenedor para acceder al servidor web
